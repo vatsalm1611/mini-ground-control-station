@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+.env.*
+*.egg-info/
+dist/
+build/
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Misc
+*.log
+*.pyc
