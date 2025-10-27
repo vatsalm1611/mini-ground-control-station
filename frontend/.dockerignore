@@ -1,0 +1,6 @@
+# Ignore local dev artifacts
+node_modules/
+dist/
+.vite/
+*.log
+.env*

@@ -151,6 +151,28 @@ Health endpoint:
 GET /health → { "status": "ok", "mode": "SIM|SITL" }
 ```
 
+## Docker (cross-platform)
+
+Quick start (build and run both):
+
+```bash
+# From repository root
+docker compose up --build
+```
+
+- Backend: http://localhost:5000
+- Frontend: http://localhost:3000
+
+Customize (optional):
+- SIM vs SITL: `SIM_MODE=SITL docker compose up --build`
+- Frontend backend URL: `VITE_BACKEND_URL=http://localhost:5000 docker compose up --build`
+- Mapbox token: `VITE_MAPBOX_TOKEN=... docker compose up --build`
+
+Stop:
+```bash
+docker compose down
+```
+
 ## Testing
 
 Backend:

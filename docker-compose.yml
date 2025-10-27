@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      # Override as needed
+      SIM_MODE: ${SIM_MODE:-SIM}
+      TELEMETRY_RATE: ${TELEMETRY_RATE:-5}
+      PORT: 5000
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Frontend talks to backend on host-mapped port
+        VITE_BACKEND_URL: ${VITE_BACKEND_URL:-http://localhost:5000}
+        VITE_MAPBOX_TOKEN: ${VITE_MAPBOX_TOKEN:-pk.eyJ1IjoidmF0c2FsbTE2MTEiLCJhIjoiY21oNXg2bzV4MGJvODJrczcza2FxbDNuZiJ9.SS967tO8Uzf2gPJyjDcpOQ}
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"

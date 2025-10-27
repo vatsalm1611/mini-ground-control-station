@@ -1,0 +1,10 @@
+# Bytecode and venv
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# Tests and dev scripts (not needed in image)
+/tests/
+/run_local.sh
+/run_local.ps1
