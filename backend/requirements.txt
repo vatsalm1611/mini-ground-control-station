@@ -1,0 +1,9 @@
+flask==3.0.0
+flask-socketio==5.3.5
+flask-cors==4.0.0
+python-socketio==5.10.0
+pydantic==2.10.3
+pymavlink==2.4.41
+eventlet==0.33.3
+pytest==7.4.3
+pytest-cov==4.1.0

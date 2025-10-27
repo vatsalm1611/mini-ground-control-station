@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+backend/venv/
+.env
+.env.*
+*.egg-info/
+# Keep demo Mapbox env tracked
+!frontend/.env.development
+# keep example envs
+!frontend/.env.example
+
+dist/
+build/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/venv/
+.vite/
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Misc
+*.log
+*.pyc
