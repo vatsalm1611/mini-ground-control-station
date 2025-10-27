@@ -5,7 +5,11 @@ WORKDIR /app
 
 # Install runtime deps
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt \
+# Increase default timeout to handle slower networks; allow overriding index via build-arg
+ARG PIP_INDEX_URL
+ENV PIP_DEFAULT_TIMEOUT=180 \
+    PIP_INDEX_URL=${PIP_INDEX_URL}
+RUN pip install --no-cache-dir --default-timeout=180 -r requirements.txt \
     && pip cache purge
 
 # Copy backend source
