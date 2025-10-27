@@ -249,7 +249,15 @@ class TelemetrySim:
         elif command_type == "set_mode":
             mode = params.get("mode", "STABILIZE")
             self.mode = mode
-            if mode.upper() == "LAND":
+            # If switching to AUTO and a mission exists, prime the first waypoint
+            if self.mode == "AUTO" and self.mission:
+                self.current_waypoint_idx = min(self.current_waypoint_idx, len(self.mission) - 1)
+                wp = self.mission[self.current_waypoint_idx]
+                self.target_lat = wp.get("lat")
+                self.target_lon = wp.get("lon")
+                self.target_alt = wp.get("alt", self.alt_rel)
+                self.executing_command = None
+            return {"id": command_id, "status": "completed", "reason": None}
                 # Initiate descent to ground
                 self.target_alt = 0.0
                 self.executing_command = "set_alt"
