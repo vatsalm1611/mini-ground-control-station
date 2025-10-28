@@ -1,4 +1,4 @@
-"""Small deterministic flight simulator used for local development and tests.
+﻿"""Small deterministic flight simulator used for local development and tests.
 
 This implementation models a minimal set of vehicle state and supports
 command execution (arm/disarm/takeoff/goto/mission/etc.) so the frontend and
@@ -259,8 +259,8 @@ class TelemetrySim:
                 self.executing_command = None
             return {"id": command_id, "status": "completed", "reason": None}
                 # Initiate descent to ground
-                self.target_alt = 0.0
-                self.executing_command = "set_alt"
+                # self.target_alt = 0.0
+                # self.executing_command = "set_alt"
             return {"id": command_id, "status": "completed", "reason": None}
         
         elif command_type == "upload_mission":
