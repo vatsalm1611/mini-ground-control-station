@@ -34,3 +34,9 @@ Thumbs.db
 # Misc
 *.log
 *.pyc
+
+# Local backups and fix scripts
+*.bak
+fix_telemetry*.ps1
+WARP.md
+render.yaml
