@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: mini-gcs-backend
+    env: docker
+    branch: main
+    dockerfilePath: backend/Dockerfile
+    plan: starter
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PORT
+        value: "5000"
+
+  - type: web
+    name: mini-gcs-frontend
+    env: docker
+    branch: main
+    dockerfilePath: frontend/Dockerfile
+    plan: starter
+    buildCommand: ""   # Docker builds; leave empty
+    envVars:
+      - key: VITE_API_URL
+        value: "https://<mini-gcs-backend-YOUR-SERVICE>.onrender.com" # update after backend deploy
